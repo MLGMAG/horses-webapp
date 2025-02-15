@@ -43,16 +43,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
 }
 
 export default function App() {
-  return (
-    <div className="font-[Montserrat] w-full h-full">
-      <header>
-        <Navbar />
-      </header>
-      <main>
-        <Outlet />
-      </main>
-    </div>
-  );
+  return <Outlet />;
 }
 
 export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
