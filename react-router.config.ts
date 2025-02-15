@@ -5,4 +5,5 @@ export default {
   async prerender() {
     return ["/", "/transfer", "/medicine", "/social"];
   },
+  basename: "/horses-webapp/",
 } satisfies Config;
