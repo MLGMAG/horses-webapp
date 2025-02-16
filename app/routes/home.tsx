@@ -1,8 +1,8 @@
 import { Link } from "react-router";
-import type { Route } from "./+types/page";
-import horseTransferImage from "./horse_transfer.png";
-import horseHospitalImage from "./horse_hospital.png";
-import horseSocialImage from "./horse_social.png";
+import type { Route } from "../+types/root";
+import horseTransferImage from "./images/horse_transfer.png";
+import horseHospitalImage from "./images/horse_hospital.png";
+import horseSocialImage from "./images/horse_social.png";
 
 export function meta({}: Route.MetaArgs) {
   return [
