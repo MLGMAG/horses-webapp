@@ -7,7 +7,7 @@ export function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <div className="shadow mb-2">
+    <div className="mb-2">
       <nav className="flex justify-between items-center mx-auto px-8 py-6">
         <div className="flex items-center gap-[2vw]">
           <div>
