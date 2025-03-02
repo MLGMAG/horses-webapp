@@ -1,6 +1,5 @@
 import { Outlet } from "react-router";
-import { Navbar } from "../components/navbar/navbar";
-import { Footer } from "../components/footer/footer";
+import { Navbar } from "../components/Navbar";
 
 export default function Page() {
   return (
@@ -11,7 +10,6 @@ export default function Page() {
       <main>
         <Outlet />
       </main>
-      <Footer />
     </div>
   );
 }
