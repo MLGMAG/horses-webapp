@@ -19,3 +19,7 @@
   animation: spin 1s infinite linear;
   margin-bottom: 1rem;
 }
+
+@theme {
+  --breakpoint-3xl: 112rem;
+}

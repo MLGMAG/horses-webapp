@@ -54,7 +54,7 @@ function MainPageSection({
         </div>
       </div>
       <div className="hidden lg:block">
-        <div className={`pl-30 pr-43 py-36 ${backgroundClass}`}>
+        <div className={`pl-30 3xl:pl-55 3xl:pr-68 pr-43 py-36 ${backgroundClass}`}>
           <div className="flex flex-row items-center justify-between">
             <div>
               <h2 className="text-5xl lg:text-4xl xl:text-6xl font-medium">

@@ -18,7 +18,7 @@ function NavbarItem({ href, title }: any) {
   });
 
   return (
-    <li className="p-3 hover:bg-sky-400 hover:text-white rounded-md transition-all cursor-pointer">
+    <li className="p-3 hover:bg-sky-400 hover:text-white rounded-md transition-all cursor-pointer xl:text-lg">
       <Link to={href}>{titleTranslation}</Link>
     </li>
   );

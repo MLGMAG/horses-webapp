@@ -60,35 +60,35 @@ export default function Login() {
 
   return (
     <>
-      <div className="mx-5 mt-25 mb-10 w-max mx-auto">
+      <div className="mx-5 mt-25 mb-10 xl:mb-20 w-max mx-auto">
         <div className="flex flex-col gap-0">
-          <h1 className="text-2xl/5 font-semibold">Ride it.</h1>
-          <h2 className="text-2xl font-semibold text-gray-400">
+          <h1 className="text-2xl/5 font-semibold xl:text-4xl/8">Ride it.</h1>
+          <h2 className="text-2xl font-semibold text-gray-400 xl:text-4xl">
             {titleTranslation}
           </h2>
         </div>
-        <hr className="h-px my-5 bg-gray-200 border-0 dark:bg-gray-2"></hr>
+        <hr className="h-px my-5 xl:my-10 bg-gray-200 border-0 dark:bg-gray-2"></hr>
         <form action="#">
           <div>
-            <label className="text-sm text-gray-600" htmlFor="email">
+            <label className="text-sm text-gray-600 xl:text-lg" htmlFor="email">
               {emailTranslation}
             </label>
             <div>
               <input
-                className="border-1 border-gray-200 rounded-lg w-full px-2 py-2.5 text-sm"
+                className="border-1 border-gray-200 rounded-lg w-full px-2 py-2.5 text-sm xl:text-lg"
                 type="text"
                 id="email"
                 placeholder={enterEmailTranslation}
               />
             </div>
           </div>
-          <div className="mt-4">
-            <label className="text-sm text-gray-600" htmlFor="password">
+          <div className="mt-4 xl:mt-6">
+            <label className="text-sm text-gray-600 xl:text-lg" htmlFor="password">
               {passwordTranslation}
             </label>
             <div>
               <input
-                className="border-1 border-gray-200 rounded-lg w-full px-2 py-2.5 text-sm"
+                className="border-1 border-gray-200 rounded-lg w-full px-2 py-2.5 text-sm xl:text-lg"
                 type="password"
                 id="password"
                 placeholder={enterPasswordTranslation}
@@ -97,10 +97,10 @@ export default function Login() {
           </div>
           <div className="text-center">
             <button
-              className="mt-10 w-full inline-flex rounded-lg py-4 text-sm font-semibold transition bg-neutral-950 text-center text-white hover:bg-sky-400"
+              className="mt-10 xl:mt-12 w-full inline-flex rounded-lg py-4 text-sm font-semibold transition bg-neutral-950 text-center text-white hover:bg-sky-400"
               type="submit"
             >
-              <div className="w-full mx-auto text-base">{loginTranslation}</div>
+              <div className="w-full mx-auto text-base xl:text-2xl">{loginTranslation}</div>
             </button>
           </div>
         </form>

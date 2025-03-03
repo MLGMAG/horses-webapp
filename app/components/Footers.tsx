@@ -16,7 +16,7 @@ function FooterLittle() {
 
 function FooterMedium() {
   return (
-    <footer className="w-full my-[30px] text-base flex flex-col items-center gap-2">
+    <footer className="w-full my-[30px] text-base flex flex-col items-center gap-2 xl:text-lg">
       <LanguageSelector />
       <div>
         <p>{title}</p>
@@ -49,7 +49,7 @@ function FooterBig() {
   return (
     <div>
       <hr className="h-px bg-gray-200 border-0 dark:bg-gray-2"></hr>
-      <footer className="my-12 mx-30">
+      <footer className="my-12 mx-30 2xl:pr-40 3xl:pl-28 3xl:pr-68 xl:text-lg">
         <div className="flex flex-row items-center justify-between">
           <div className="flex flex-col gap-9">
             <div className="flex flex-row items-center gap-6">

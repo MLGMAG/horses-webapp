@@ -142,7 +142,7 @@ function TheMainPageTitleSection() {
   });
 
   return (
-    <div className="mt-20 mb-30 mx-11 lg:mt-34 lg:mb-46 lg:mx-65 text-center">
+    <div className="mt-20 mb-30 mx-11 lg:mt-34 lg:mb-46 lg:mx-65 3xl:mx-105 text-center">
       <h1 className="mb-9 text-5xl/18 md:text-6xl/18 2xl:text-7xl/18 font-semibold text-center text-slate-900">
         Global pet platform
       </h1>

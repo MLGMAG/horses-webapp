@@ -16,13 +16,10 @@ const overviewInfo = {
     en: "We offer specialized medicine services to ensure the health and well-being of horses during transport. Our services include veterinary support, medical documentation, temperature-controlled shipping for medications, and compliance with international health regulations. We prioritize the safe and timely delivery of essential equine medicines, providing peace of mind for owners and caretakers worldwide.",
     uk: "Ми пропонуємо спеціалізовані медичні послуги для забезпечення здоров'я та благополуччя коней під час транспортування. Наші послуги включають ветеринарну підтримку, медичну документацію, перевезення медикаментів з контрольованою температурою та дотримання міжнародних правил охорони здоров'я. Ми надаємо пріоритет безпечній та своєчасній доставці основних лікарських засобів для коней, забезпечуючи спокій власників та доглядачів коней по всьому світу.",
   },
-  image: (
-    <img
-      className="rounded-4xl mx-auto w-105"
-      src={animalHospitalImage}
-      alt="Animals in hospital"
-    />
-  ),
+  image: {
+    alt: "Animals in hospital",
+    src: animalHospitalImage,
+  },
 };
 
 export default function Medicine() {
