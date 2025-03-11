@@ -1,26 +1,14 @@
 import { useEffect, useState } from "react";
-import {
-  useGetStorageLanguage,
-  useSetStorageLanguage,
-} from "./useStorageLanguage";
+import { useStorageLanguage } from "./useStorageLanguage";
 import LanguageSelectorItem from "./LanguageSelectorItem";
-import {
-  defaultLanguageCode,
-  languages,
-  supportedLanguageCodes,
-} from "../data/LanguageData";
+import { languages } from "../data/LanguageData";
 
 function LanguageSelector() {
   const [activeLanguageCode, setActiveLanguageCode] = useState("");
+  const [storageLanguage, setStorageLanguage] = useStorageLanguage();
 
   useEffect(() => {
-    const selectedLanguage = useGetStorageLanguage(defaultLanguageCode);
-    if (!supportedLanguageCodes.has(selectedLanguage)) {
-      useSetStorageLanguage(defaultLanguageCode);
-      setActiveLanguageCode(defaultLanguageCode);
-    } else {
-      setActiveLanguageCode(selectedLanguage);
-    }
+    setActiveLanguageCode(storageLanguage);
   });
 
   return (

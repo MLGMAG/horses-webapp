@@ -2,27 +2,26 @@ import { FooterLittle, FooterMedium } from "../components/Footers";
 import type { Route } from "../+types/root";
 import animalLogisticsImage from "../images/animal_logistics.jpg";
 import { OverviewSection } from "../components/OverviewSection";
+import { useTranslation } from "../components/useTranslation";
 
 export function meta({}: Route.MetaArgs) {
   return [{ title: "Logistics" }];
 }
 
-const overviewInfo = {
-  title: {
-    en: "Logistics",
-    uk: "Логістика",
-  },
-  description: {
-    en: "We offer end-to-end horse shipping solutions, including flight bookings, quarantine management, veterinary compliance, and real-time tracking. Designed for horse owners, breeders, and trainers, the platform ensures safe, efficient, and stress-free international horse logistics with expert handling and customized transport options.",
-    uk: "Ми пропонуємо комплексні рішення для перевезення коней, включаючи бронювання рейсів, управління карантином, дотримання ветеринарних норм і відстеження в режимі реального часу. Розроблена для власників коней, заводчиків і тренерів, платформа забезпечує безпечну, ефективну і безпроблемну міжнародну логістику коней з експертною обробкою і індивідуальними варіантами транспортування.",
-  },
-  image: {
-    alt: "Animals in track",
-    src: animalLogisticsImage,
-  },
-};
+function getOverviewInfo() {
+  return {
+    title: useTranslation("OVERVIEW_LOGISTICS_TITLE"),
+    description: useTranslation("OVERVIEW_LOGISTICS_DESCRIPTION"),
+    image: {
+      alt: "Animals in track",
+      src: animalLogisticsImage,
+    },
+  };
+}
 
 export default function Transfer() {
+  const overviewInfo = getOverviewInfo();
+
   return (
     <>
       <OverviewSection {...overviewInfo} />

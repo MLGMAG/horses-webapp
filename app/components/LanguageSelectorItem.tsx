@@ -1,5 +1,5 @@
 import type { ILanguage } from "../data/LanguageData";
-import { useSetStorageLanguage } from "./useStorageLanguage";
+import { useStorageLanguage } from "./useStorageLanguage";
 
 interface IPropes {
   language: ILanguage;
@@ -12,18 +12,16 @@ export default function LanguageSelectorItem({
   activeLanguageCode,
   setActiveLanguageCode,
 }: IPropes) {
-  language.code;
   const isActive = activeLanguageCode.includes(language.code);
+  const [, setStorageLanguage] = useStorageLanguage();
 
   function changeLanguage() {
     if (isActive) {
       return;
     }
 
-    useSetStorageLanguage(language.code);
+    setStorageLanguage(language.code);
     setActiveLanguageCode(language.code);
-
-    window.location.reload();
   }
 
   return (

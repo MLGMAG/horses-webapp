@@ -1,3 +1,7 @@
+import { useEffect } from "react";
+import { defaultLanguageCode } from "../data/LanguageData";
+import { useLanguageContext } from "./useLanguageContext";
+
 const localStorageLanguageKey = "selectedLanguage";
 
 function getStorageLanguage() {
@@ -12,12 +16,21 @@ function getBrowserLanguage() {
   return browserLanguage;
 }
 
-function useSetStorageLanguage(languageCode: string) {
-  window.localStorage.setItem(localStorageLanguageKey, languageCode);
+function useStorageLanguage(): [string, Function] {
+  const { storageLanguage, setStorageLanguage } = { ...useLanguageContext() };
+
+  const setStorageLanguageEnhanced = function (languageCode: string) {
+    window.localStorage.setItem(localStorageLanguageKey, languageCode);
+    setStorageLanguage!(languageCode);
+  };
+
+  useEffect(() => {
+    setStorageLanguage!(
+      getStorageLanguage() || getBrowserLanguage() || defaultLanguageCode
+    );
+  });
+
+  return [storageLanguage!, setStorageLanguageEnhanced];
 }
 
-function useGetStorageLanguage(defaultLanguageCode: string) {
-  return getStorageLanguage() || getBrowserLanguage() || defaultLanguageCode;
-}
-
-export { useSetStorageLanguage, useGetStorageLanguage };
+export { useStorageLanguage };

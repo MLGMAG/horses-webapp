@@ -1,8 +1,6 @@
 import { FooterLittle, FooterMedium } from "../components/Footers";
 import type { Route } from "../+types/root";
-import { useState, useEffect } from "react";
-import { useGetStorageLanguage } from "../components/useStorageLanguage";
-import { defaultLanguageCode } from "../data/LanguageData";
+import { useTranslation } from "../components/useTranslation";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -11,52 +9,13 @@ export function meta({}: Route.MetaArgs) {
   ];
 }
 
-const translations = {
-  title: {
-    en: "Login to your account",
-    uk: "Увійдість у ваш акаунт",
-  },
-  email: {
-    en: "Email",
-    uk: "Пошта",
-  },
-  enterEmail: {
-    en: "Enter your email address...",
-    uk: "Введіть поштову адресу...",
-  },
-  password: {
-    en: "Password",
-    uk: "Пароль",
-  },
-  enterPassword: {
-    en: "Enter your password...",
-    uk: "Введіть пароль...",
-  },
-  login: {
-    en: "Login",
-    uk: "Увійти",
-  },
-};
-
 export default function Login() {
-  const [titleTranslation, setTitleTranslation] = useState("");
-  const [emailTranslation, setEmailTranslation] = useState("");
-  const [enterEmailTranslation, setEnterEmailTranslation] = useState("");
-  const [passwordTranslation, setPasswordTranslation] = useState("");
-  const [enterPasswordTranslation, setEnterPasswordTranslation] = useState("");
-  const [loginTranslation, setLoginTranslation] = useState("");
-
-  useEffect(() => {
-    const currentLanguageCode = useGetStorageLanguage(defaultLanguageCode);
-    setTitleTranslation(translations.title[currentLanguageCode]);
-    setEmailTranslation(translations.email[currentLanguageCode]);
-    setEnterEmailTranslation(translations.enterEmail[currentLanguageCode]);
-    setPasswordTranslation(translations.password[currentLanguageCode]);
-    setEnterPasswordTranslation(
-      translations.enterPassword[currentLanguageCode]
-    );
-    setLoginTranslation(translations.login[currentLanguageCode]);
-  });
+  const title = useTranslation("LOGIN_TITLE");
+  const email = useTranslation("LOGIN_EMAIL");
+  const enterEmail = useTranslation("LOGIN_ENTER_EMAIL");
+  const password = useTranslation("LOGIN_PASSWORD");
+  const enterPassword = useTranslation("LOGIN_ENTER_PASSWORD");
+  const enterAccount = useTranslation("LOGIN_ENTER_ACCOUNT");
 
   return (
     <>
@@ -64,34 +23,37 @@ export default function Login() {
         <div className="flex flex-col gap-0">
           <h1 className="text-2xl/5 font-semibold xl:text-4xl/8">Ride it.</h1>
           <h2 className="text-2xl font-semibold text-gray-400 xl:text-4xl">
-            {titleTranslation}
+            {title}
           </h2>
         </div>
         <hr className="h-px my-5 xl:my-10 bg-gray-200 border-0 dark:bg-gray-2"></hr>
         <form action="#">
           <div>
             <label className="text-sm text-gray-600 xl:text-lg" htmlFor="email">
-              {emailTranslation}
+              {email}
             </label>
             <div>
               <input
                 className="border-1 border-gray-200 rounded-lg w-full px-2 py-2.5 text-sm xl:text-lg"
                 type="text"
                 id="email"
-                placeholder={enterEmailTranslation}
+                placeholder={enterEmail}
               />
             </div>
           </div>
           <div className="mt-4 xl:mt-6">
-            <label className="text-sm text-gray-600 xl:text-lg" htmlFor="password">
-              {passwordTranslation}
+            <label
+              className="text-sm text-gray-600 xl:text-lg"
+              htmlFor="password"
+            >
+              {password}
             </label>
             <div>
               <input
                 className="border-1 border-gray-200 rounded-lg w-full px-2 py-2.5 text-sm xl:text-lg"
                 type="password"
                 id="password"
-                placeholder={enterPasswordTranslation}
+                placeholder={enterPassword}
               />
             </div>
           </div>
@@ -100,7 +62,9 @@ export default function Login() {
               className="mt-10 xl:mt-12 w-full inline-flex rounded-lg py-4 text-sm font-semibold transition bg-neutral-950 text-center text-white hover:bg-sky-400"
               type="submit"
             >
-              <div className="w-full mx-auto text-base xl:text-2xl">{loginTranslation}</div>
+              <div className="w-full mx-auto text-base xl:text-2xl">
+                {enterAccount}
+              </div>
             </button>
           </div>
         </form>

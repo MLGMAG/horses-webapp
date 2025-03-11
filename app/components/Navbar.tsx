@@ -1,25 +1,43 @@
 import { useEffect, useState } from "react";
 import horseIcon from "../images/horse.png";
 import { Link } from "react-router";
-import {
-  useGetStorageLanguage,
-  useSetStorageLanguage,
-} from "./useStorageLanguage";
-import {
-  defaultLanguageCode,
-  supportedLanguageCodes,
-} from "../data/LanguageData";
+import { useStorageLanguage } from "./useStorageLanguage";
+import { useTranslation } from "./useTranslation";
+
+function getNavbarLinks() {
+  return [
+    {
+      href: "/logistics",
+      title: useTranslation("NAVBAR_LOGISTICS_TITLE"),
+    },
+    {
+      href: "/medicine",
+      title: useTranslation("NAVBAR_MEDICINE_TITLE"),
+    },
+    {
+      href: "/social",
+      title: useTranslation("NAVBAR_SOCIAL_TITLE"),
+    },
+    {
+      href: "/market",
+      title: useTranslation("NAVBAR_MARKET_TITLE"),
+    },
+  ];
+}
+
+function getNavbarAuthLinks() {
+  return [
+    {
+      href: "/login",
+      title: useTranslation("NAVBAR_LOGIN_TITLE"),
+    },
+  ];
+}
 
 function NavbarItem({ href, title }: any) {
-  const [titleTranslation, setTitleTranslation] = useState("");
-  useEffect(() => {
-    const currentLanguageCode = useGetStorageLanguage(defaultLanguageCode);
-    setTitleTranslation(title[currentLanguageCode]);
-  });
-
   return (
     <li className="p-3 hover:bg-sky-400 hover:text-white rounded-md transition-all cursor-pointer xl:text-lg">
-      <Link to={href}>{titleTranslation}</Link>
+      <Link to={href}>{title}</Link>
     </li>
   );
 }
@@ -30,12 +48,6 @@ function MobileNavbarItem({
   setIsMenuOpen,
   disableScrollOnMenuOpen,
 }: any) {
-  const [titleTranslation, setTitleTranslation] = useState("");
-  useEffect(() => {
-    const currentLanguageCode = useGetStorageLanguage(defaultLanguageCode);
-    setTitleTranslation(title[currentLanguageCode]);
-  });
-
   return (
     <div
       className="list-none w-full text-center p-4 hover:bg-sky-400 hover:text-white transition-all cursor-pointer"
@@ -43,7 +55,7 @@ function MobileNavbarItem({
       onClick={() => setIsMenuOpen(false)}
     >
       <Link onClick={disableScrollOnMenuOpen} to={href}>
-        {titleTranslation}
+        {title}
       </Link>
     </div>
   );
@@ -52,15 +64,10 @@ function MobileNavbarItem({
 export function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeLanguageCode, setActiveLanguageCode] = useState("");
+  const [storageLanguage, setStorageLanguage] = useStorageLanguage();
 
   useEffect(() => {
-    const selectedLanguage = useGetStorageLanguage(defaultLanguageCode);
-    if (!supportedLanguageCodes.has(selectedLanguage)) {
-      useSetStorageLanguage(defaultLanguageCode);
-      setActiveLanguageCode(defaultLanguageCode);
-    } else {
-      setActiveLanguageCode(selectedLanguage);
-    }
+    setActiveLanguageCode(storageLanguage);
   });
 
   function handleClick() {
@@ -81,10 +88,8 @@ export function Navbar() {
       return;
     }
 
-    useSetStorageLanguage(selectedLanguageCode);
+    setStorageLanguage(selectedLanguageCode);
     setActiveLanguageCode(selectedLanguageCode);
-
-    window.location.reload();
   }
 
   const genericHamburgerLine =
@@ -101,7 +106,7 @@ export function Navbar() {
           </div>
           <div className="hidden lg:inline">
             <ul className="font-semibold text-base flex gap-[1vw]">
-              {navLinks.map((link) => (
+              {getNavbarLinks().map((link) => (
                 <NavbarItem {...link} key={link.href} />
               ))}
             </ul>
@@ -109,7 +114,7 @@ export function Navbar() {
         </div>
         <div className="hidden lg:inline">
           <ul className="font-semibold text-base flex gap-[2vw]">
-            {authLinks.map((link) => (
+            {getNavbarAuthLinks().map((link) => (
               <NavbarItem {...link} key={link.href} />
             ))}
           </ul>
@@ -150,14 +155,15 @@ export function Navbar() {
           style={{ transition: "transform 0.3s ease, opacity 0.3s ease" }}
         >
           <div>
-            {[...navLinks, ...authLinks].map((link) => (
+            {[...getNavbarLinks(), ...getNavbarAuthLinks()].map((link) => (
               <MobileNavbarItem
                 {...link}
+                key={link.href}
                 setIsMenuOpen={setIsMenuOpen}
                 disableScrollOnMenuOpen={disableScrollOnMenuOpen}
               />
             ))}
-            <div className="mt-4 py-3 px-4 flex flex-row gap-3 justify-between">
+            <div className="mt-4 py-3 px-4 flex flex-row gap-3 justify-around">
               <button
                 className={`w-43 md:w-80 text-center rounded-full ${
                   activeLanguageCode === "uk" && "bg-slate-200"
@@ -187,29 +193,3 @@ export function Navbar() {
     </div>
   );
 }
-
-const navLinks = [
-  {
-    href: "/logistics",
-    title: { en: "Logistics", uk: "Логістика" },
-  },
-  {
-    href: "/medicine",
-    title: { en: "Medicine", uk: "Медицина" },
-  },
-  {
-    href: "/social",
-    title: { en: "Social network", uk: "Соціальна мережа" },
-  },
-  {
-    href: "/market",
-    title: { en: "Market", uk: "Маркет" },
-  },
-];
-
-const authLinks = [
-  {
-    href: "/login",
-    title: { en: "Login", uk: "Логін" },
-  },
-];

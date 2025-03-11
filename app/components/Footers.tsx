@@ -1,8 +1,6 @@
 import { LanguageSelector } from "./LanguageSelector";
 import horseIcon from "../images/horse.png";
-import { useState, useEffect } from "react";
-import { defaultLanguageCode } from "../data/LanguageData";
-import { useGetStorageLanguage } from "./useStorageLanguage";
+import { useTranslation } from "./useTranslation";
 
 const title = "© 2025 Global pet platform.";
 
@@ -25,26 +23,9 @@ function FooterMedium() {
   );
 }
 
-const contactsText = {
-  email: {
-    en: "Email:",
-    uk: "Пошта:",
-  },
-  phone: {
-    en: "Phone:",
-    uk: "Телефон:",
-  },
-};
-
 function FooterBig() {
-  const [emailTranslation, setEmailTranslation] = useState("");
-  const [phoneTranslation, setPhoneTranslation] = useState("");
-
-  useEffect(() => {
-    const currentLanguageCode = useGetStorageLanguage(defaultLanguageCode);
-    setEmailTranslation(contactsText.email[currentLanguageCode]);
-    setPhoneTranslation(contactsText.phone[currentLanguageCode]);
-  });
+  const email = useTranslation("FOOTER_CONTACTS_EMAIL");
+  const phone = useTranslation("FOOTER_CONTACTS_PHONE");
 
   return (
     <div>
@@ -58,8 +39,8 @@ function FooterBig() {
             </div>
             <div className="flex flex-row items-center gap-6">
               <div>
-                <div>{emailTranslation}</div>
-                <div>{phoneTranslation}</div>
+                <div>{email}</div>
+                <div>{phone}</div>
               </div>
               <div>
                 <div>sales@global-pet-platform.com</div>
