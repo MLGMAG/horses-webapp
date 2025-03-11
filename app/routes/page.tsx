@@ -1,5 +1,5 @@
 import { Outlet } from "react-router";
-import { Navbar } from "../components/Navbar";
+import { TheNavbar } from "../components/TheNavbar";
 import { useState } from "react";
 import { defaultLanguageCode } from "../data/LanguageData";
 import LanguageContext from "../context/LanguageContext";
@@ -17,7 +17,7 @@ export default function Page() {
     <div className="font-[Montserrat] w-full h-full">
       <LanguageContext.Provider value={createLanguageContext()}>
         <header>
-          <Navbar />
+          <TheNavbar />
         </header>
         <main>
           <Outlet />

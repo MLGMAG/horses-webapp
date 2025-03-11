@@ -61,7 +61,7 @@ function MobileNavbarItem({
   );
 }
 
-export function Navbar() {
+export function TheNavbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeLanguageCode, setActiveLanguageCode] = useState("");
   const [storageLanguage, setStorageLanguage] = useStorageLanguage();
