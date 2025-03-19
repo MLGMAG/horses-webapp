@@ -151,7 +151,7 @@ const TRANSLATIONS = new Map<string, string>([
   ["MARKET_SECTION_LINK_LABEL_UK", "Давай домовимося! →"],
 
   ["LOGIN_TITLE_EN", "Login to your account"],
-  ["LOGIN_TITLE_UK", "Увійдість у ваш акаунт"],
+  ["LOGIN_TITLE_UK", "Увійдіть у ваш акаунт"],
   ["LOGIN_EMAIL_EN", "Email"],
   ["LOGIN_EMAIL_UK", "Пошта"],
   ["LOGIN_ENTER_EMAIL_EN", "Enter your email address..."],
