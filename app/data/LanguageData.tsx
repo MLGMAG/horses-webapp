@@ -1,12 +1,12 @@
 interface ILanguage {
   label: string;
   code: string;
-  addPipe: boolean;
+  isLast: boolean;
 }
 
 const languages: ILanguage[] = [
-  { label: "УКР", code: "uk", addPipe: true },
-  { label: "ENG", code: "en", addPipe: false },
+  { label: "УКР", code: "uk", isLast: false },
+  { label: "ENG", code: "en", isLast: true },
 ];
 
 const supportedLanguageCodes = new Set(["uk", "en"]);

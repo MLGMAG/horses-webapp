@@ -5,7 +5,7 @@ interface IPropes {
   language: ILanguage;
 }
 
-export default function LanguageSelectorItem({ language }: IPropes) {
+function TheNavbarLanguageSelectorItemMobile({ language }: IPropes) {
   const [storageLanguage, setStorageLanguage] = useStorageLanguage();
   const isActive = storageLanguage === language.code;
 
@@ -17,16 +17,15 @@ export default function LanguageSelectorItem({ language }: IPropes) {
   }
 
   return (
-    <>
-      <button
-        className={`cursor-pointer hover:text-sky-400 ${
-          isActive && "text-sky-400 font-bold"
-        }`}
-        onClick={() => changeLanguage(language.code)}
-      >
-        {language.label}
-      </button>
-      {!language.isLast && " | "}
-    </>
+    <button
+      className={`w-43 md:w-80 text-center rounded-full ${
+        isActive && "bg-slate-200"
+      }`}
+      onClick={() => changeLanguage(language.code)}
+    >
+      {language.label}
+    </button>
   );
 }
+
+export { TheNavbarLanguageSelectorItemMobile };

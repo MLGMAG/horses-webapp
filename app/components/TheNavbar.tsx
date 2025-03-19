@@ -3,6 +3,7 @@ import horseIcon from "../images/horse.png";
 import { Link } from "react-router";
 import { useStorageLanguage } from "./useStorageLanguage";
 import { useTranslation } from "./useTranslation";
+import { TheNavbarLanguageSelectorMobile } from "./TheNavbarLanguageSelectorMobile";
 
 function getNavbarLinks() {
   return [
@@ -112,6 +113,7 @@ export function TheNavbar() {
             </ul>
           </div>
         </div>
+
         <div className="hidden lg:inline">
           <ul className="font-semibold text-base flex gap-[2vw]">
             {getNavbarAuthLinks().map((link) => (
@@ -163,24 +165,7 @@ export function TheNavbar() {
                 disableScrollOnMenuOpen={disableScrollOnMenuOpen}
               />
             ))}
-            <div className="mt-4 py-3 px-4 flex flex-row gap-3 justify-around">
-              <button
-                className={`w-43 md:w-80 text-center rounded-full ${
-                  activeLanguageCode === "uk" && "bg-slate-200"
-                }`}
-                onClick={() => changeLanguage("uk")}
-              >
-                УКР
-              </button>
-              <button
-                className={`w-43 md:w-80 text-center rounded-full ${
-                  activeLanguageCode === "en" && "bg-slate-200"
-                }`}
-                onClick={() => changeLanguage("en")}
-              >
-                ENG
-              </button>
-            </div>
+            <TheNavbarLanguageSelectorMobile />
           </div>
         </div>
         <div
