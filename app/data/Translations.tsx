@@ -8,6 +8,39 @@ const TRANSLATIONS = new Map<string, string>([
     "Універсальна платформа, що об'єднує все, що пов'язано з тваринами: перевезення, ветеринарні послуги, купівля, продаж, допомога та пошук нового дому.",
   ],
 
+  [
+    "HOME_TITLE_ICON_DESCRIPTION_MARKET_EN",
+    "Buy and Sell – a safe marketplace for animals around the world: buy, sell, rescue."
+  ],
+  [
+    "HOME_TITLE_ICON_DESCRIPTION_MARKET_UK",
+    "Купівля та продаж – безпечний маркетплейс для тварин по всьому світу: купівля, продаж, порятунок."
+  ],
+  [
+    "HOME_TITLE_ICON_DESCRIPTION_SOCIAL_EN",
+    "Social network – communication, forums and communities of pet owners."
+  ],
+  [
+    "HOME_TITLE_ICON_DESCRIPTION_SOCIAL_UK",
+    "Соціальна мережа – спілкування, форуми та спільноти власників тварин."
+  ],
+  [
+    "HOME_TITLE_ICON_DESCRIPTION_HOSPITAL_EN",
+    "Veterinary medicine - a directory of clinics, veterinarians and useful information."
+  ],
+  [
+    "HOME_TITLE_ICON_DESCRIPTION_HOSPITAL_UK",
+    "Ветеринарія – каталог клінік, ветеринарів та корисна інформація."
+  ],
+  [
+    "HOME_TITLE_ICON_DESCRIPTION_LOGISTICS_EN",
+    "Animal transportation – reliable transportation services for all types of animals around the world."
+  ],
+  [
+    "HOME_TITLE_ICON_DESCRIPTION_LOGISTICS_UK",
+    "Перевезення тварин – надійні транспортні послуги для всіх видів тварин по всьому світу."
+  ],
+
   ["ABOUT_SECTION_TITLE_EN", "About platform"],
   ["ABOUT_SECTION_TITLE_UK", "Про платформу"],
   [

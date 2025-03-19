@@ -1,7 +1,6 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import horseIcon from "../images/horse.png";
 import { Link } from "react-router";
-import { useStorageLanguage } from "./useStorageLanguage";
 import { useTranslation } from "./useTranslation";
 import { TheNavbarLanguageSelectorMobile } from "./TheNavbarLanguageSelectorMobile";
 
@@ -64,12 +63,6 @@ function MobileNavbarItem({
 
 export function TheNavbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [activeLanguageCode, setActiveLanguageCode] = useState("");
-  const [storageLanguage, setStorageLanguage] = useStorageLanguage();
-
-  useEffect(() => {
-    setActiveLanguageCode(storageLanguage);
-  });
 
   function handleClick() {
     setIsMenuOpen(!isMenuOpen);
@@ -82,15 +75,6 @@ export function TheNavbar() {
     } else {
       document.body.classList.add("overflow-y-hidden");
     }
-  }
-
-  function changeLanguage(selectedLanguageCode: string) {
-    if (selectedLanguageCode === activeLanguageCode) {
-      return;
-    }
-
-    setStorageLanguage(selectedLanguageCode);
-    setActiveLanguageCode(selectedLanguageCode);
   }
 
   const genericHamburgerLine =

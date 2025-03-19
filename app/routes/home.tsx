@@ -9,11 +9,49 @@ import { useTranslation } from "../components/useTranslation";
 import { TheMainPageTitleSection } from "~/components/TheMainPageTitleSection";
 import { TheMainPageAboutPlatformSection } from "~/components/TheMainPageAboutPlatformSection";
 import { TheMainPageServicesSection } from "~/components/TheMainPageServicesSection";
+import { TheMainPageTitleIcon } from "~/components/TheMainPageTitleIcon";
 
 export function meta({}: Route.MetaArgs) {
   return [
     { title: "Horses App" },
     { name: "description", content: "Welcome to Horses app!" },
+  ];
+}
+
+function getTitleIcons() {
+  return [
+    {
+      href: "#market",
+      image: {
+        src: animalMarketImage,
+        alt: "Animals market",
+      },
+      description: useTranslation("HOME_TITLE_ICON_DESCRIPTION_MARKET"),
+    },
+    {
+      href: "#logistics",
+      image: {
+        src: animalLogisticsImage,
+        alt: "Animals in track",
+      },
+      description: useTranslation("HOME_TITLE_ICON_DESCRIPTION_LOGISTICS"),
+    },
+    {
+      href: "#medicine",
+      image: {
+        src: animalHospitalImage,
+        alt: "Animals in hospital",
+      },
+      description: useTranslation("HOME_TITLE_ICON_DESCRIPTION_HOSPITAL"),
+    },
+    {
+      href: "#social",
+      image: {
+        src: animalSocialNetworkImage,
+        alt: "Animals in social network",
+      },
+      description: useTranslation("HOME_TITLE_ICON_DESCRIPTION_SOCIAL"),
+    },
   ];
 }
 
@@ -90,6 +128,14 @@ export default function Home() {
   return (
     <>
       <TheMainPageTitleSection />
+
+      <div className="md:hidden">
+        <div className="ml-8 mr-4 my-10 flex flex-col gap-10">
+          {getTitleIcons().map((titleIcon) => (
+            <TheMainPageTitleIcon {...titleIcon} key={titleIcon.href} />
+          ))}
+        </div>
+      </div>
       <TheMainPageAboutPlatformSection />
       <TheMainPageServicesSection />
       {getSections().map((section) => (
