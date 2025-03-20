@@ -9,7 +9,6 @@ import { useTranslation } from "../components/useTranslation";
 import { TheMainPageTitleSection } from "~/components/TheMainPageTitleSection";
 import { TheMainPageAboutPlatformSection } from "~/components/TheMainPageAboutPlatformSection";
 import { TheMainPageServicesSection } from "~/components/TheMainPageServicesSection";
-import { TheMainPageTitleIcon } from "~/components/TheMainPageTitleIcon";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -127,15 +126,7 @@ function getSections() {
 export default function Home() {
   return (
     <>
-      <TheMainPageTitleSection />
-
-      <div className="md:hidden">
-        <div className="ml-8 mr-4 my-10 flex flex-col gap-10">
-          {getTitleIcons().map((titleIcon) => (
-            <TheMainPageTitleIcon {...titleIcon} key={titleIcon.href} />
-          ))}
-        </div>
-      </div>
+      <TheMainPageTitleSection titleIcons={getTitleIcons()} />
       <TheMainPageAboutPlatformSection />
       <TheMainPageServicesSection />
       {getSections().map((section) => (
