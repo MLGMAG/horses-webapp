@@ -1,6 +1,7 @@
 import { FooterLittle, FooterMedium } from "../components/Footers";
 import type { Route } from "../+types/root";
 import { useTranslation } from "../components/useTranslation";
+import { useEffect } from "react";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -9,7 +10,24 @@ export function meta({}: Route.MetaArgs) {
   ];
 }
 
+const BASE_URL = "https://mlgjkl.love/horses";
+interface TokenVO {
+  value: String;
+}
+
 export default function Login() {
+  useEffect(() => {
+    const fetchToken = async () => {
+      const response = await fetch(`${BASE_URL}/rest/v1/token/`, {
+        method: "POST",
+      });
+      const token = (await response.json()) as TokenVO;
+      console.log(`Fetched Token: '${token.value}'`);
+    };
+
+    fetchToken();
+  }, []);
+
   const title = useTranslation("LOGIN_TITLE");
   const email = useTranslation("LOGIN_EMAIL");
   const enterEmail = useTranslation("LOGIN_ENTER_EMAIL");

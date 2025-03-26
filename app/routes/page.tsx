@@ -12,7 +12,7 @@ function createLanguageContext() {
   };
 }
 
-export default function Page() {
+function Page() {
   return (
     <div className="font-[Montserrat] w-full h-full">
       <LanguageContext.Provider value={createLanguageContext()}>
@@ -26,3 +26,5 @@ export default function Page() {
     </div>
   );
 }
+
+export default Page;
