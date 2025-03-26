@@ -10,4 +10,4 @@ import{w as h}from"./with-props-DWVhaFhO.js";import{l as e,r,p as c,O as m}from"
           `,style:{transition:"transform 0.3s ease, opacity 0.3s ease"},children:e.jsxs("div",{children:[[...d(),...u()].map(a=>r.createElement(L,{...a,key:a.href,setIsMenuOpen:s,disableScrollOnMenuOpen:n})),e.jsx(N,{})]})}),e.jsx("div",{className:`
               absolute xl:hidden h-full w-full bg-black text-white left-0 top-120
               ${t?"opacity-50":"opacity-0 hidden"}
-          `})]})})}function w(){const[t,s]=r.useState(b);return{storageLanguage:t,setStorageLanguage:s}}const k=h(function(){return e.jsx("div",{className:"font-[Montserrat] w-full h-full",children:e.jsxs(j.Provider,{value:w(),children:[e.jsx("header",{children:e.jsx(y,{})}),e.jsx("main",{children:e.jsx(m,{})})]})})});export{k as default};
+          `})]})})}function w(){const[t,s]=r.useState(b);return{storageLanguage:t,setStorageLanguage:s}}function I(){return e.jsx("div",{className:"font-[Montserrat] w-full h-full",children:e.jsxs(j.Provider,{value:w(),children:[e.jsx("header",{children:e.jsx(y,{})}),e.jsx("main",{children:e.jsx(m,{})})]})})}const E=h(I);export{E as default};
